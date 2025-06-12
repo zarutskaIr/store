@@ -10,8 +10,14 @@ window.addEventListener('click', function(event){
         counter.innerText = ++counter.innerText;
     }
     if(event.target.dataset.action === 'minus'){
+
         if(parseInt(counter.innerText) >1 ){
-        counter.innerText = --counter.innerText;
+            counter.innerText = --counter.innerText;
+
+        } else if (event.target.closest('.cart-wrapper') && parseInt(counter.innerText)=== 1)  {
+             event.target.closest('.cart-item').remove();
+             toggleCartStatus();
+    
         }
     }
 });
